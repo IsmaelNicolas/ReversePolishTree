@@ -39,7 +39,8 @@ class stack{
         int size();
 
     private:
-        struct Node{
+        class Node{
+	public:
             Object element;
             Node *next;
 

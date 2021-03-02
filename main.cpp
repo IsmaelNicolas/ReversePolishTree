@@ -13,6 +13,7 @@
 #include "infix.h"
 #include "Menu.h"
 #include "Arbol.h"
+#include "Console.h"
 
 void format_input(string input, string &output);
 
@@ -26,12 +27,13 @@ int main(void)
 	char *infix; 	
 	char *postfix;
 	double x = 0;
-
 	do {
 		option = menu.makeMenu(4,"Ingresar Expresion","Ver Infija","Ver Posfija","Salir");
 		system("cls");
 		switch (option) {
 		case 1:{
+			Console screen;
+			screen.hideCursor(true);
 			in = "";
 			expression = "";
 			x = 0;
