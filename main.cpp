@@ -12,7 +12,7 @@
 #include "postfix.h"
 #include "infix.h"
 #include "Menu.h"
-
+#include "Arbol.h"
 
 void format_input(string input, string &output);
 
@@ -21,7 +21,7 @@ int main(void)
 	
 	Menu menu;
 	int option;	
-	
+	Arbol bArbol;
 	string in, out, expression;
 	char *infix; 	
 	char *postfix;
@@ -32,6 +32,11 @@ int main(void)
 		system("cls");
 		switch (option) {
 		case 1:{
+			in = "";
+			expression = "";
+			x = 0;
+			infix,postfix = NULL;
+
 			cout << "Ingrese una expresion: ";
 			getline(cin, in);
 			format_input(in, expression);

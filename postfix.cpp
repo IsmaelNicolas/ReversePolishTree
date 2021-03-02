@@ -8,6 +8,7 @@
 
 #include "stack.cpp"
 #include "postfix.h"
+#include "Arbol.h"
 
 //! evaluates postfix expression.
 float eval_postfix(char* postfix){
@@ -17,16 +18,20 @@ float eval_postfix(char* postfix){
     string character;	
     string expression(postfix); 
     stin.str(expression);
+	Arbol bTree;	
 
     while(stin >> character){
         if(character == "+" || character == "-" || character == "*" || character == "/" || character == "^"){
-            compute(character, operands);
+		bTree.insertar(character);
+            	compute(character, operands);
         }
         else{
-            operands.push(character);
+		bTree.insertar(character);
+            	operands.push(character);
         }
     }
     evaluated = atof(operands.topAndPop().c_str());
+	bTree.inorder(bTree.getRaiz());
     return evaluated;
 }
 
